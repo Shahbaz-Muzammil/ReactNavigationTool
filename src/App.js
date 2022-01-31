@@ -1,16 +1,13 @@
-import React from 'react';
-import './App.css';
-import {Navigation} from './Navigation';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import "./App.css";
+import { Navigation } from "./Components/Navigation/Navigation";
 
 function App() {
   return (
     <div className="App">
-    <header className="App-header">
-      
-    <Navigation />
-    </header>
-  </div>
+      <h1>App Component</h1>
+      <Navigation />
+    </div>
   );
 }
 
