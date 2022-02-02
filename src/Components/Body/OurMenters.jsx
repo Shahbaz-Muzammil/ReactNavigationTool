@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-class OurMenters extends Component {
+export class OurMenters extends Component {
   state = { name: "abc", age: 25 };
+
   render() {
     return (
       <div>
@@ -12,5 +13,3 @@ class OurMenters extends Component {
     );
   }
 }
-
-export default OurMenters;
