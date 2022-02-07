@@ -1,0 +1,17 @@
+.prodItem{
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid green;
+  background-color: chocolate;
+  width: 30%;
+  height: 400px;
+  float: right;
+}
+.prodList{
+  margin: 10px;
+  padding: 10px;
+ background-color: burlywood;
+ 
+ 
+ 
+}
