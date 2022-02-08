@@ -6,7 +6,7 @@ import axios from "axios";
 export const ProductList = () => {
   const [data, setData] = useState([]);
   const getProducts = async () => {
-    const result = await axios.get("https://fakestoreapi.com/products");
+    const result = await axios.get("http://localhost:3000/products");
     setData(result.data);
   };
   useEffect(() => {
