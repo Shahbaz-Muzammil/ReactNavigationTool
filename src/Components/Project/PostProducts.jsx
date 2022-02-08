@@ -1,7 +1,7 @@
 // Note:- JSON Server
 // Installation:- npm install -g json-server
 // Start Server:- json-server --watch db.json (It will on localhost:3000)
-// Now you have to change your react localhost to something else like 3001:- "start": "set PORT=3001 && react-scripts start"
+// Now you have to change your react localhost to something else like 3001:- package.json==> "start": "set PORT=3001 && react-scripts start"
 import React, { useState } from "react";
 import axios from "axios";
 
