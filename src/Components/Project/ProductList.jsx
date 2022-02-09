@@ -14,7 +14,7 @@ export const ProductList = () => {
   }, []);
 
   return (
-    <div className="prodList">
+    <div style={{ display: "flex" }}>
       {data.map((items) => {
         return (
           <div key={items.id}>

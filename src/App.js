@@ -5,8 +5,9 @@ import PostData from "./Components/API/PostData";
 // import MyCarousel from "./Components/Body/MyCarousel";
 // import { OurMenters } from "./Components/Body/OurMenters";
 // import { Navigation } from "./Components/Navigation/Navigation";
-import { ProductList } from "./Components/Project/ProductList";
-import PostProducts from "./Components/Project/PostProducts";
+// import { ProductList } from "./Components/Project/ProductList";
+// import PostProducts from "./Components/Project/PostProducts";
+import FetchingDataFromRedux from "./Components/Redux/FetchingDataFromRedux";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       {/* <Navigation /> */}
       {/* <MyCarousel /> */}
       {/* <OurMenters /> */}
-      <PostProducts />
-      <ProductList />
+      {/* <PostProducts /> */}
+      {/* <ProductList /> */}
       {/* <PostData /> */}
       {/* <FetchData /> */}
+      <FetchingDataFromRedux />
     </div>
   );
 }
