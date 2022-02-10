@@ -1,6 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Card, Button, Modal } from "react-bootstrap";
+import { putApiDetails } from "../Services/apiServices";
+import { deleteApiDetails } from "../Services/apiServices";
 export const ProductItem = (props) => {
   const [show, setShow] = useState(false);
   const [editTitle, setEditTitle] = useState();
@@ -8,16 +9,15 @@ export const ProductItem = (props) => {
   const [editDesc, setEditDesc] = useState();
   const [editCateg, setEditCateg] = useState();
 
-  const handleEdit = (itemId) => {
+  const handleEdit = () => {
     setShow(true);
-    console.log("itemId==>", itemId);
     setEditTitle(props.items.title);
     setEditPrice(props.items.price);
     setEditDesc(props.items.description);
     setEditCateg(props.items.category);
   };
 
-  const updateDetails = (userId) => {
+  const updateDetails = async (id) => {
     const request = {
       title: editTitle,
       price: editPrice,
@@ -26,11 +26,19 @@ export const ProductItem = (props) => {
       image:
         "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     };
-    axios.put(`http://localhost:3000/products/${userId}`, request);
+    // axios.put(`http://localhost:3000/products/${userId}`, request);
+    await putApiDetails(id, request);
+    window.location.reload();
+  };
+
+  const handleDelete = async (id) => {
+    // axios.delete(`http://localhost:3000/products/${id}`);
+    await deleteApiDetails(id);
+    window.location.reload();
   };
   return (
     <div>
-      <Card style={{ width: "18rem", height: "22rem" }}>
+      <Card style={{ width: "22rem", height: "30rem", overflow: "hidden" }}>
         <Card.Title>
           <h4>{props.items.title}</h4>
         </Card.Title>
@@ -38,11 +46,17 @@ export const ProductItem = (props) => {
           <img
             src={props.items.image}
             alt="productImage"
-            style={{ width: "15rem" }}
+            style={{ width: "15rem", height: "15rem" }}
           />
-          <p>{props.items.price}</p>
+          <p>{props.items.price} &#36;</p>
           <p>{props.items.description}</p>
-          <button onClick={() => handleEdit(props.items.id)}>Edit</button>
+          <h5>{props.items.category}</h5>
+          <button className="m-2" onClick={() => handleEdit(props.items.id)}>
+            Edit
+          </button>
+          <button className="m-2" onClick={() => handleDelete(props.items.id)}>
+            Delete
+          </button>
         </Card.Body>
       </Card>
 
@@ -65,7 +79,6 @@ export const ProductItem = (props) => {
             onChange={(e) => setEditTitle(e.target.value)}
           />
           <br />
-          <br />
           <input
             type="text"
             name="price"
@@ -73,7 +86,6 @@ export const ProductItem = (props) => {
             value={editPrice}
             onChange={(e) => setEditPrice(e.target.value)}
           />
-          <br />
           <br />
           <input
             type="text"
@@ -83,7 +95,6 @@ export const ProductItem = (props) => {
             onChange={(e) => setEditDesc(e.target.value)}
           />
           <br />
-          <br />
           <input
             type="text"
             name="category"
@@ -91,7 +102,6 @@ export const ProductItem = (props) => {
             value={editCateg}
             onChange={(e) => setEditCateg(e.target.value)}
           />
-          <br />
           <br />
         </Modal.Body>
         <Modal.Footer>

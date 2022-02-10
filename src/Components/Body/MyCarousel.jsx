@@ -1,31 +1,27 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
-import { MyCarouselData } from "../Reducers/MyCarouselData";
+import { useSelector } from "react-redux";
 const MyCarousel = () => {
-  const [data, setData] = useState(1);
-  const [text, setText] = useState("abx");
+  const [carouselData, setCarouselData] = useState([]);
+  const myCarousel = useSelector((state) => state.carouselReducer.myCarousel);
   useEffect(() => {
-    console.log("useEffect");
-  }, [data]);
-
+    setCarouselData(myCarousel);
+  }, [myCarousel]);
   return (
     <div>
-      {text}
       <Carousel>
-        {MyCarouselData.map((elements) => {
+        {carouselData.map((itemCurrent) => {
           return (
-            <Carousel.Item interval={100} key={elements.id}>
+            <Carousel.Item interval={100}>
               <img
                 className="d-block w-100"
-                src={elements.carouselImg}
+                src={itemCurrent.carouselImg}
                 alt="First slide"
                 style={{ height: "500px" }}
               />
               <Carousel.Caption>
-                <h3 onClick={() => setText("xyz")}>{elements.carouselTitle}</h3>
-                <p>{elements.carouselDescription}</p>
+                <h3>{itemCurrent.carouselTitle}</h3>
+                <p>{itemCurrent.carouselDescription}</p>
               </Carousel.Caption>
             </Carousel.Item>
           );

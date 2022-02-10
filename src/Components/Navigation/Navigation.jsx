@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navigation.css";
+import { useSelector } from "react-redux";
 export const Navigation = () => {
+  const [nanData, setNavData] = useState([]);
+  const finalResult = useSelector((state) => state.navReducer.navData);
+  useEffect(() => {
+    setNavData(finalResult);
+  }, [finalResult]);
   return (
     <div>
       <nav>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Services</a>
-        <a href="">Contact</a>
+        {nanData.map((elemnets) => {
+          return (
+            <a href={elemnets.link} target={elemnets.target}>
+              {elemnets.name}
+            </a>
+          );
+        })}
       </nav>
     </div>
   );

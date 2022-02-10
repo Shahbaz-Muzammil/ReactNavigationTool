@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 const FetchingDataFromRedux = () => {
-  //   const [data, setData] = useState();
   const selector = useSelector((state) => state.sampleReducer.myState);
-
   return (
     <div>
       {selector.map((itemCurrent) => {
@@ -22,5 +20,4 @@ const FetchingDataFromRedux = () => {
     </div>
   );
 };
-
 export default FetchingDataFromRedux;
