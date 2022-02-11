@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Navigation.css";
 import { useSelector, useDispatch } from "react-redux";
-import { NavigationAction } from "../State/Actions/NavigationAction";
 export const Navigation = () => {
   const [navData, setNavData] = useState([]);
   const [name, setName] = useState();
