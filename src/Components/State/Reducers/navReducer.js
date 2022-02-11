@@ -11,5 +11,19 @@ const initState = {
   ],
 };
 export const navReducer = (state = initState, action) => {
-  return state;
+  // switch (action.type) {
+  //   case "ADD_NAV_LINK":
+  //     return {
+  //       ...state,
+  //       navData: [...state.navData, action.navData],
+  //     };
+  //   default:
+  //     return state;
+  // }
+  if (action.type === "ADD_NAV_LINK") {
+    return {
+      ...state,
+      navData: [...state.navData, action.navData],
+    };
+  } else return state;
 };
