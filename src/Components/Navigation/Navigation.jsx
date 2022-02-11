@@ -18,7 +18,6 @@ export const Navigation = () => {
     dispatch({ type: "ADD_NAV_LINk", navData: { name, link, target } });
     // OR
     // dispatch(NavigationAction(name, link, target));
-    // Testig
   };
   return (
     <div>
