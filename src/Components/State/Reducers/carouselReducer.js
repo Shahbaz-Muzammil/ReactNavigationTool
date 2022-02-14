@@ -21,5 +21,24 @@ const initialState = {
   ],
 };
 export const carouselReducer = (state = initialState, action) => {
-  return state;
+  // By usning Swicth case
+  // switch (action.type) {
+  //   case "ADD_CAROUSEL":
+  //     return {
+  //       ...state,
+  //       myCarousel: [...state.myCarousel, action.data],
+  //     };
+  //   default:
+  //     return state;
+  // }
+  // By usning if else
+  console.log(action);
+  if (action.type === "ADD_CAROUSEL") {
+    return {
+      ...state,
+      myCarousel: [...state.myCarousel, action.data],
+    };
+  } else {
+    return state;
+  }
 };

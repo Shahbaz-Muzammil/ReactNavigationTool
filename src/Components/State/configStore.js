@@ -2,6 +2,7 @@ import { createStore, combineReducers } from "redux";
 import { sampleReducer } from "./Reducers/sampleReducer";
 import { navReducer } from "./Reducers/navReducer";
 import { bodyReducer } from "./Reducers/bodyReducer";
+import { testReducer } from "./Reducers/testReducer";
 import { carouselReducer } from "./Reducers/carouselReducer";
 export const configStore = () => {
   const store = createStore(
@@ -10,6 +11,7 @@ export const configStore = () => {
       navReducer,
       bodyReducer,
       carouselReducer,
+      testReducer,
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );

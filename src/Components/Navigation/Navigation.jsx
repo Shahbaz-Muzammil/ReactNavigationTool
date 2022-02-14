@@ -15,7 +15,7 @@ export const Navigation = () => {
 
   const dispatch = useDispatch();
   const handleAddLink = () => {
-    dispatch({ type: "ADD_NAV_LINk", navData: { name, link, target } });
+    dispatch({ type: "ADD_NAV_LINK", navData: { name, link, target } });
     // OR
     // dispatch(NavigationAction(name, link, target));
   };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import MyCarouselChild from "./MyCarouselChild";
 const MyCarousel = () => {
   const [carouselData, setCarouselData] = useState([]);
   const myCarousel = useSelector((state) => state.carouselReducer.myCarousel);
@@ -27,6 +28,7 @@ const MyCarousel = () => {
           );
         })}
       </Carousel>
+      <MyCarouselChild />
     </div>
   );
 };

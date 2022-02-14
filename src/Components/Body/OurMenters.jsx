@@ -1,15 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+import { Card } from "react-bootstrap";
 
-export class OurMenters extends Component {
-  state = { name: "abc", age: 25 };
-
-  render() {
-    return (
-      <div>
-        <h1>
-          Class Component {this.state.name} {this.state.age}
-        </h1>
-      </div>
-    );
-  }
-}
+export const OurMenters = () => {
+  return (
+    <div>
+      <Card style={{ width: "18rem" }}>
+        <Card.Header>Menter's name</Card.Header>
+        <Card.Body>
+          <img src="" alt="menter's img" />
+        </Card.Body>
+        <Card.Footer>
+          <p>Menter's desc</p>
+        </Card.Footer>
+      </Card>
+    </div>
+  );
+};
