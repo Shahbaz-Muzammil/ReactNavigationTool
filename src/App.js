@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Courses from "./Components/Body/Courses";
 // import UseRef from "./Components/Hooks/UseRef";
 // import FetchData from "./Components/API/FetchData";
 // import PostData from "./Components/API/PostData";
@@ -16,6 +17,7 @@ function App() {
       {/* <h1>App Component</h1> */}
       <Navigation />
       <MyCarousel />
+      <Courses />
       <OurMenters />
       {/* <ProductList /> */}
       {/* <PostData /> */}
