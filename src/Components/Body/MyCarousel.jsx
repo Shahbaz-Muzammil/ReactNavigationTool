@@ -28,7 +28,6 @@ const MyCarousel = () => {
           );
         })}
       </Carousel>
-      <MyCarouselChild />
     </div>
   );
 };

@@ -5,7 +5,22 @@ const MyCarouselChild = () => {
   const [carouselTitle, setCarouselTitle] = useState();
   const [carouselDescription, setCarouselDescription] = useState();
   const myDispatch = useDispatch();
-
+  const dispatchHandler = () => {
+    if (!carouselImg && !carouselTitle && !carouselDescription) {
+      alert("Please fill required field");
+    } else if (!carouselImg) {
+      alert("Please fill image");
+    } else if (!carouselTitle) {
+      alert("Please fill Title");
+    } else if (!carouselDescription) {
+      alert("Please fill Description");
+    } else {
+      myDispatch({
+        type: "ADD_CAROUSEL",
+        data: { carouselImg, carouselTitle, carouselDescription },
+      });
+    }
+  };
   return (
     <div>
       <input
@@ -26,16 +41,7 @@ const MyCarouselChild = () => {
         className="m-2"
         onChange={(e) => setCarouselDescription(e.target.value)}
       />
-      <button
-        onClick={() =>
-          myDispatch({
-            type: "ADD_CAROUSEL",
-            data: { carouselImg, carouselTitle, carouselDescription },
-          })
-        }
-      >
-        Dispatch Carousel Data
-      </button>
+      <button onClick={dispatchHandler}>Add Carousel</button>
     </div>
   );
 };

@@ -28,7 +28,6 @@ export const OurMenters = () => {
             </Card>
           );
         })}
-      <OurMentorsChild />
     </div>
   );
 };

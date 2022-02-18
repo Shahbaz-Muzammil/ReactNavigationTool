@@ -29,7 +29,6 @@ const Courses = () => {
           </Card>
         );
       })}
-      <CoursesChild />
     </div>
   );
 };

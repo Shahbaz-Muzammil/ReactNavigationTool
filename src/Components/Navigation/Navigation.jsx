@@ -1,56 +1,57 @@
 import React, { useEffect, useState } from "react";
 import "./Navigation.css";
-import { useSelector, useDispatch } from "react-redux";
-import { NavigationAction } from "../State/Actions/NavigationAction";
+import { useSelector } from "react-redux";
+import { Button, Modal } from "react-bootstrap";
+import NavigationChild from "./NavigationChild";
+import MyCarouselChild from "../Body/MyCarouselChild";
+import CoursesChild from "../Body/CoursesChild";
+import OurMentorsChild from "../Body/CoursesChild";
 export const Navigation = () => {
   const [navData, setNavData] = useState([]);
-  const [name, setName] = useState();
-  const [link, setLink] = useState();
-  const [target, setTarget] = useState();
-
+  const [show, setShow] = useState(false);
   const finalResult = useSelector((state) => state.navReducer.navData);
   useEffect(() => {
     setNavData(finalResult);
   }, [finalResult]);
-
-  const dispatch = useDispatch();
-  const handleAddLink = () => {
-    dispatch({ type: "ADD_NAV_LINK", navData: { name, link, target } });
-    // OR
-    // dispatch(NavigationAction(name, link, target));
-  };
   return (
     <div>
       <nav>
         {navData.map((elemnets) => {
           return (
-            <a href={elemnets.link} target={elemnets.target}>
+            <a
+              href={elemnets.link}
+              target={elemnets.target}
+              className="myAnchor"
+            >
               {elemnets.name}
             </a>
           );
         })}
       </nav>
-      <div style={{ float: "right", margin: "15px" }}>
-        <input
-          className="m-2"
-          type="text"
-          placeholder="Add New Link Name"
-          onChange={(event) => setName(event.target.value)}
-        />
-        <input
-          className="m-2"
-          type="text"
-          placeholder="Add New Link URL"
-          onChange={(e) => setLink(e.target.value)}
-        />
-        <input
-          className="m-2"
-          type="text"
-          placeholder="Add New Link Target"
-          onChange={(e) => setTarget(e.target.value)}
-        />
-        <button onClick={handleAddLink}>Add Link</button>
-      </div>
+
+      <Button onClick={() => setShow(true)}>Dashboard</Button>
+      {/* Modal Start From Here */}
+
+      <Modal show={show} onHide={() => setShow(false)} centered size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>DASHBOARD</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Add Navigations</h4>
+          <NavigationChild />
+          <h4>Add Carousels</h4>
+          <MyCarouselChild />
+          <h4>Add Courses</h4>
+          <CoursesChild />
+          <h4>Add Mentors</h4>
+          <OurMentorsChild />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShow(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

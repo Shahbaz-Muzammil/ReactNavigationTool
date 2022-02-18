@@ -22,26 +22,26 @@ const CoursesChild = () => {
       <input
         type="text"
         id="html"
-        className="mt-2"
         placeholder="Add Course Title"
         onChange={(e) => setTitle(e.target.value)}
+        className="m-2"
       />
       <input
         type="text"
         id="css"
-        className="mt-2"
         placeholder="Add Course Image"
         onChange={(e) => setImage(e.target.value)}
+        className="m-2"
       />
       <input
         type="text"
         id="react"
-        className="mt-2"
         placeholder="Add Course Description"
         onChange={(e) => setDescription(e.target.value)}
+        className="m-2"
       />
       <button className="mt-2" onClick={handleDispatch}>
-        Add New Course
+        Add Course
       </button>
     </div>
   );
