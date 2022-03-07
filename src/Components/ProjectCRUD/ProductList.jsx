@@ -5,19 +5,18 @@ import { getApiDetails, postApiDetails } from "../Services/apiServices";
 import { Button, Modal } from "react-bootstrap";
 
 export const ProductList = () => {
-  const [title, setTitle] = useState();
-  const [price, setPrice] = useState();
-  const [description, setDescription] = useState();
-  const [image, setImage] = useState();
-  const [category, setCategory] = useState();
+  const [empName, setEmpName] = useState();
+  const [empImage, setEmpImage] = useState();
+  const [empSalary, setEmpSalary] = useState();
+  const [empAge, setEmpAge] = useState();
   const [showPostModal, setShowPostModal] = useState(false);
   const [data, setData] = useState([]);
   // Fetching data from api
   const getProducts = async () => {
-    // const result = await axios.get("http://localhost:3000/products");
     //api calling usnig api services
     const result = await getApiDetails("products");
     setData(result.data);
+    console.log("data==>", result.data);
   };
   useEffect(() => {
     getProducts();
@@ -29,10 +28,10 @@ export const ProductList = () => {
         reader = new FileReader();
 
       reader.onload = (event) => {
-        setImage(event.target.result);
+        setEmpImage(event.target.result);
       };
       reader.readAsDataURL(file);
-      setImage(reader);
+      setEmpImage(reader);
     } else {
       alert("Soryy, your browser does'nt support for preview");
     }
@@ -40,13 +39,10 @@ export const ProductList = () => {
   // dispatching the post request
   const submitProducts = async () => {
     const request = {
-      title: title,
-      price: price,
-      description: description,
-      // image:
-      //   "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      image: image,
-      category: category,
+      employee_name: empName,
+      employee_salary: empSalary,
+      employee_age: empAge,
+      profile_image: empImage,
     };
     //api calling usnig api services
     await postApiDetails(request);
@@ -57,10 +53,10 @@ export const ProductList = () => {
     <>
       <div className="m-2">
         <Button onClick={() => setShowPostModal(!showPostModal)}>
-          Add Details
+          Add Employee
         </Button>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {data.map((items) => {
           return (
             <div key={items.id}>
@@ -83,36 +79,27 @@ export const ProductList = () => {
           <div>
             <input
               type="text"
-              name="title"
-              placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
+              name="name"
+              placeholder="Employee Name"
+              onChange={(e) => setEmpName(e.target.value)}
             />
             <br />
             <br />
             <input
               type="text"
-              name="price"
-              placeholder="Price"
+              name="salary"
+              placeholder="Employee Salary"
               maxLength={5}
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={(e) => setEmpAge(e.target.value)}
             />
             <br />
             <br />
             <input
               type="text"
-              name="description"
-              placeholder="Description"
+              name="age"
+              placeholder="Employee Age"
               maxLength={25}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <br />
-            <br />
-            <input
-              type="text"
-              name="category"
-              placeholder="Category"
-              maxLength={25}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => setEmpSalary(e.target.value)}
             />
             <br />
             <br />

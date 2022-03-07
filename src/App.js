@@ -11,9 +11,10 @@ import PageFooter from "./Components/Footer/PageFooter";
 import { Navigation } from "./Components/Navigation/Navigation";
 import TodoList from "./Components/Todo/TodoList";
 // import Testing from "./Components/Testing";
-// import { ProductList } from "./Components/ProjectCRUD/ProductList";
+import { ProductList } from "./Components/ProjectCRUD/ProductList";
 // import FetchingDataFromRedux from "./Components/Redux/FetchingDataFromRedux";
 import Createtable from "./Components/Todo/Createtable";
+
 function App() {
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
       {/* <MyCarousel /> */}
       {/* <Courses /> */}
       {/* <OurMenters /> */}
-      {/* <ProductList /> */}
+      <ProductList />
       {/* <PostData /> */}
       {/* <FetchData /> */}
       {/* <FetchingDataFromRedux /> */}
@@ -31,7 +32,7 @@ function App() {
       {/* <Testing /> */}
       {/* <PageFooter /> */}
       {/* <TodoList /> */}
-      <Createtable />
+      {/* <Createtable /> */}
     </div>
   );
 }

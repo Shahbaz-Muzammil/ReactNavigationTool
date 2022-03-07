@@ -17,12 +17,12 @@ export const apiService = async (url, method, header, request) => {
 };
 export const getApiDetails = () => {
   const headers = { "Content-Type": "application/json" };
-  return apiService(`http://localhost:3000/products`, "GET", headers, {});
+  return apiService(`http://localhost:3000/empData`, "GET", headers, {});
 };
 export const postApiDetails = (requestPayload) => {
   const headers = { "Content-Type": "application/json" };
   return apiService(
-    `http://localhost:3000/products`,
+    `http://localhost:3000/empData`,
     "POST",
     headers,
     requestPayload
@@ -31,7 +31,7 @@ export const postApiDetails = (requestPayload) => {
 export const putApiDetails = (id, requestPayload) => {
   const headers = { "Content-Type": "application/json" };
   return apiService(
-    `http://localhost:3000/products/${id}`,
+    `http://localhost:3000/empData/${id}`,
     "PUT",
     headers,
     requestPayload
@@ -40,7 +40,7 @@ export const putApiDetails = (id, requestPayload) => {
 export const deleteApiDetails = (id) => {
   const headers = { "Content-Type": "application/json" };
   return apiService(
-    `http://localhost:3000/products/${id}`,
+    `http://localhost:3000/empData/${id}`,
     "DELETE",
     headers,
     {}
